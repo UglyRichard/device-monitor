@@ -9,7 +9,6 @@ namespace SignalRLog.Models
         public LogContext()
             : base("name=Monitor")
         {
-//            Database.SetInitializer<LogContext>(new CreateDatabaseIfNotExists<LogContext>());
         }
 
         public DbSet<Log> Logs { get; set; }
@@ -22,13 +21,4 @@ namespace SignalRLog.Models
         public string Message { get; set; }
         public DateTime Created { get; set; }
     }
-/*
-    public class LogDBInitializer : CreateDatabaseIfNotExists<LogContext>
-    {
-        protected override void Seed(LogContext context)
-        {
-            base.Seed(context);
-        }
-    }
-*/
 }

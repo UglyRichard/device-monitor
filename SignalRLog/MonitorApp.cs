@@ -10,14 +10,14 @@ namespace SignalRLog
     public class MonitorApp
     {
         // store received messages
-        public static bool SaveMessage(string name, string message)
+        public static bool SaveMessage(string clientId, string message)
         {
             using (var ctx = new LogContext())
             {
                 try
                 {
                     // trying save a new message to database
-                    var log = new Log() { ClientId = name, Message = message, Created = DateTime.Now };
+                    var log = new Log() { ClientId = clientId, Message = message, Created = DateTime.Now };
 
                     ctx.Logs.Add(log);
                     ctx.SaveChanges();
