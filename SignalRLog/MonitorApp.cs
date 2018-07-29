@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace SignalRLog
@@ -10,25 +11,28 @@ namespace SignalRLog
     public class MonitorApp
     {
         // store received messages
-        public static bool SaveMessage(string clientId, string message)
+        public static Task<bool> SaveMessageAsync(string clientId, string message)
         {
-            using (var ctx = new LogContext())
+            return Task.Run(() =>
             {
-                try
+                using (var ctx = new LogContext())
                 {
-                    // trying save a new message to database
-                    var log = new Log() { ClientId = clientId, Message = message, Created = DateTime.Now };
+                    try
+                    {
+                        // trying save a new message to database
+                        var log = new Log() { ClientId = clientId, Message = message, Created = DateTime.Now };
 
-                    ctx.Logs.Add(log);
-                    ctx.SaveChanges();
+                        ctx.Logs.Add(log);
+                        ctx.SaveChanges();
 
-                    return true;
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
                 }
-                catch (Exception)
-                {
-                    return false;
-                }
-            }
+            });
         }
 
         // return a number of all messages
