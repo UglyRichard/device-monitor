@@ -1,5 +1,5 @@
 # device-monitor
-Basic concept of ASP.NET server - JQuery clients with usage of SignalR, MVC and EntityFramework
+Basic concept of ASP.NET server and JQuery clients with usage of SignalR, MVC and EntityFramework
 
 <h1>How to run this project</h1>
 <p>
