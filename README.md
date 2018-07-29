@@ -5,7 +5,7 @@ Basic concept of ASP.NET server - JQuery clients with usage of SignalR, MVC and 
 <p>
   <ol>
     <li>Open project in Microsoft Visual Studio and Run, database will be automaticly generated from Model</li>
-    <li>Internet browser will be opened and you will see a result page where is shown a number of already received messages</li>
+    <li>Internet browser will be opened and you will see a result page where will be shown a number of already received messages</li>
     <li>On the top of page you see a "Generator" link, open it and write ID of this client, then you can write a message to server by SignalR connection.</li>
     <li>After message will be saved (or not), you will be inform on screen.</li>
   </ol>
